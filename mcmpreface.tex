@@ -1,0 +1,50 @@
+%修改：图片文件导入目录picdir   E:\doc\2009nwumcm\paper\pic
+%如何防止出现迎页面图形
+
+
+%导言区的命令。主要包括 usepackage  maketitle  页面设置 新的命令
+
+%导入数学公式自定义 \input{mathequ}
+
+%使用说明
+%************************************************************输入处提示****************************
+%
+
+\usepackage{amsmath}
+\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{longtable}
+%符号设定使用无线的长表格。可以解决表格分页的问题。ref：The longtable package.pdf
+\usepackage[usenames]{color}
+\usepackage{slashbox}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% 更改页面设置
+\pagestyle{plain} \topmargin=-15.4mm \oddsidemargin=-0.4mm
+\evensidemargin=-0.4mm \textwidth=160mm \textheight=247mm
+
+%\renewcommand{\tableofcontents}{\tableofcontents\newpage}%自动生成目录%修改后不能用，编译不报错，但是没有dvi生成
+
+%\graphicspath{{E:/doc/texpic}}
+\newcommand{\picdir}{E:/doc/nwumcm/paper/pic}
+
+\bibliographystyle{plain}%引用格式 ieeetr
+
+\newcommand{\makepapertitle}{{\begin{center}\Large\heiti{\papertitle}\end{center}}}
+
+\newenvironment{cnabstract}[1]{{\thispagestyle{empty}\setcounter{page}{0}\begin{center}{\heiti\large\ziju{2}摘要}\end{center}}#1}{}
+\newcommand{\keyword}[1]{{\vspace{1em}{\heiti 关键词：}}{#1}\newpage}
+
+\titleformat{\section}[hang]{\centering\heiti\large}{\large \arabic{section}}{0.5em}{}
+\titleformat{\subsection}[hang]{\flushleft\heiti\normalsize}{\normalsize \arabic{section}.\arabic{subsection}}{0.5em}{}
+\titleformat{\subsubsection}[hang]{\flushleft\heiti\normalsize}{\normalsize \arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}
+
+%\renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
+\numberwithin{equation}{section}%公式按章节编号
+
+\setlength\LTleft\parindent%longtable  的左边界
+\setlength\LTright\fill
+
+\input{mcmequ}
